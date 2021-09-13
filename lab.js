@@ -5,7 +5,11 @@
 */
 
 //Code here
-const me = 
+const me = {
+  name: 'Aaron',
+  age: 22
+}
+console.log(me);
 
 
 
@@ -17,6 +21,14 @@ const me =
 //and goodBoy (a boolean).
 
 //Code here
+var dog = {
+  name: 'Bolt',
+  color: 'White and Black',
+  age: 7,
+  goodBoy: true
+}
+console.log(dog);
+
 
 
 
@@ -24,6 +36,8 @@ const me =
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
+console.log(dog.name);
+
 
 
 
@@ -31,7 +45,7 @@ const me =
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
-
+console.log(dog.color);
 
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
@@ -41,6 +55,15 @@ const me =
 */
 
 //Code here
+const favoriteThings = {
+  band:'System of a Down',
+  food:'Tacos',
+  person: 'Keeanu Reeves',
+  book: 'Berserk',
+  movie: 'The Lion King',
+  holiday: 'Christmas'
+}
+console.log(favoriteThings);
 
 
 /*
@@ -48,6 +71,9 @@ const me =
 */
 
 //Code here
+favoriteThings.car = 'RX-7';
+favoriteThings['brand'] = 'Nike';
+console.log(favoriteThings);
 
 
 /*
@@ -56,6 +82,9 @@ const me =
 */
 
 //Code here
+favoriteThings.food = 'Chicken Nuggets';
+favoriteThings.book = 'Harry Potter';
+console.log(favoriteThings);
 
 
 
@@ -78,7 +107,9 @@ var user = {
 */
 
 //Code Here
-
+user.name = 'Bryan G. Smith';
+user.email = 'bryan.smith@devmounta.in';
+console.log(user);
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
 /*
@@ -86,6 +117,8 @@ var user = {
 */
 
 //Code Here
+delete user.age;
+console.log(user);
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -96,6 +129,16 @@ var user = {
 */
 
 //Code here
+class Cat {
+  constructor(name,age,color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
+
+const Mikey = new Cat('Mikey', '7', 'orange');
+console.log(Mikey.name);
 
 
 
@@ -108,6 +151,22 @@ var user = {
 */
 
 //Code here
+class Wizard {
+  constructor(name,age,favSpell) {
+    this.name = name;
+    this.age = age;
+    this.favSpell = favSpell;
+  }
+
+  castSpell(name,favSpell) {
+    this.name = name;
+    this.favSpell = favSpell;
+    console.log(`${name} has cast ${favSpell}`);
+  }
+}
+
+const Merlin = new Wizard('Merlin','999','Avada Kedavra');
+Merlin.castSpell(Merlin.name,Merlin.favSpell);
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 /*
@@ -133,6 +192,31 @@ var user = {
 */
 
 //Code Here
+class Phone {
+  constructor(brand,model,storage,color,price,soldProps) {
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.soldProps = false;
+  }
+
+  Sell(soldProps) {
+    this.soldProps = soldProps;
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+}
+
+const s10 =  new Phone('Samsung','S10',500 +' GB','Black','$899.99')
+s10.Sell(true);
+s10.changePrice('$' + 699.99);
+console.log(s10);
+
+
 
   
 /*
@@ -146,6 +230,11 @@ var user = {
 */
 
 //Code Here
+const iPhone12 = new Phone('Apple', 'iPhone12', 500, 'Red', 999.99)
+
+const S20 = new Phone('Samsung', 'S20', 600, 'Blue', 999.99)
+
+const Pixle5 = new Phone('Google', 'Pixle 5', 500, 'White', 499.99)
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -155,6 +244,8 @@ var user = {
 */ 
 
 //Code Here 
+S20.changePrice('$' + 799.99)
+console.log(S20);
 
 
 /*
@@ -164,6 +255,8 @@ var user = {
 */
 
 //Code Here 
+Pixle5.Sell(true);
+console.log(Pixle5);
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -183,6 +276,11 @@ const colors = {
 //do not edit this object
 
 //Code Here 
+let colorsCopy = {
+  ...colors
+}
+console.log(colorsCopy);
+
 
 
 
@@ -211,6 +309,11 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
+let infoCopy = {
+  ...contactInfo,
+  ...shippingInfo
+}
+console.log(infoCopy);
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -229,6 +332,18 @@ const shippingInfo = {
 */
 
 //Code Here 
+class Vehicle {
+  constructor(capacity,color,mileage) {
+    this.capacity = capacity;
+    this.color = color;
+    this.mileage = mileage;
+  }
+
+  move(miles) {
+    this.mileage = this.mileage + miles;
+  }
+
+}
 
 
 /*
@@ -236,6 +351,12 @@ const shippingInfo = {
 */
 
 //Code Here
+const Accord = new Vehicle(5,'Silver',35056);
+let myFirstVehicle = Accord;
+Accord.move(9000)
+console.log(Accord);
+
+
 
 
 /* 
@@ -248,12 +369,24 @@ const shippingInfo = {
 */
 
 //Code Here
+class Motorcycle extends Vehicle {
+  constructor(capacity,color,mileage,make,isCool) {
+    super(capacity,color,mileage);
+    this.make = make;
+    this.isCool = true;
+  }
+
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
+const Yamaha = new Motorcycle(2,'Black', 3058, 'Yamaha');
+let myFirstMotorcycle = Yamaha;
+Yamaha.move(4000);
+console.log(Yamaha);
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
@@ -275,6 +408,29 @@ const shippingInfo = {
 */
 
 //Code Here
+class Boat extends Vehicle {
+  constructor(capacity,color,mileage,name,type,isSeaWorthy) {
+    super(capacity,color,mileage);
+    this.name = name;
+    this.type = type;
+    this.isSeaWorthy = false;
+  }
+
+  checkSeaWorthiness(){
+    // this.isSeaWorthy = this.isSeaWorthy;
+
+    if(this.isSeaWorthy === true) {
+      console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+    } else {
+      console.log(`You need to get your ${this.type} in shape!`)
+    }
+  }
+
+  performMaintenance() {
+    this.isSeaWorthy = true;
+  }
+
+}
 
 
 /*
@@ -283,21 +439,26 @@ const shippingInfo = {
 */
 
 //Code Here
+const masterCraft = new Boat(8, 'White', 120, 'Bessy', 'Fishing Boat');
+console.log(masterCraft);
 
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
+masterCraft.checkSeaWorthiness();
 
 /*
   Now run the performMaintenance method on your boat
 */
 
 //Code Here 
+masterCraft.performMaintenance();
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+masterCraft.checkSeaWorthiness();
